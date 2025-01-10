@@ -60,7 +60,7 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
         </Link>
       )}
       {
-        <Link aria-label={'GitHub'} href="https://logto-api.mossx.online/" target={'_blank'}>
+        <Link aria-label={'GitHub'} href="https://mall.mossxshop.top/" target={'_blank'}>
           <ActionIcon icon={BadgeJapaneseYen} placement={'right'} title="充值" />
         </Link>
       }
