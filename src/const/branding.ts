@@ -5,7 +5,7 @@
 export const LOBE_CHAT_CLOUD = 'MossX Cloud';
 
 export const BRANDING_NAME = 'MossX';
-export const BRANDING_LOGO_URL = '';
+export const BRANDING_LOGO_URL = 'https://i.postimg.cc/xjNXrPv2/logo.png';
 
 export const ORG_NAME = 'StarCoreO';
 

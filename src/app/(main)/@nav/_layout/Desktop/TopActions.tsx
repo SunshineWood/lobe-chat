@@ -1,5 +1,5 @@
 import { ActionIcon } from '@lobehub/ui';
-import { BadgeJapaneseYen, Compass, FolderClosed, MessageSquare } from 'lucide-react';
+import { Compass, FolderClosed, MessageSquare, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -61,7 +61,7 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
       )}
       {
         <Link aria-label={'GitHub'} href="https://mall.mossxshop.top/" target={'_blank'}>
-          <ActionIcon icon={BadgeJapaneseYen} placement={'right'} title="充值" />
+          <ActionIcon icon={ShoppingBag} placement={'right'} title="充值" />
         </Link>
       }
     </>

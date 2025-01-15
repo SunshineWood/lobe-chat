@@ -33,18 +33,27 @@ const BrandWatermark = memo<Omit<FlexboxProps, 'children'>>(({ style, ...rest })
       style={{ color: theme.colorTextDescription, fontSize: 12, ...style }}
       {...rest}
     >
-      <span>Powered by</span>
-      {isCustomORG ? (
-        <span>{ORG_NAME}</span>
-      ) : (
+      <Flexbox gap={4}>
+        <span>Powered by</span>
+        {isCustomORG ? (
+          <span>{ORG_NAME}</span>
+        ) : (
+          <Link
+            className={styles.logoLink}
+            href={`https://lobehub.com?utm_source=${UTM_SOURCE}&utm_content=brand_watermark`}
+            target={'_blank'}
+          >
+            <LobeHub size={20} type={'text'} />
+          </Link>
+        )}
         <Link
-          className={styles.logoLink}
-          href={`https://lobehub.com?utm_source=${UTM_SOURCE}&utm_content=brand_watermark`}
+          href="http://beian.miit.gov.cn/"
+          style={{ color: theme.colorTextDescription, fontSize: 12 }}
           target={'_blank'}
         >
-          <LobeHub size={20} type={'text'} />
+          京ICP备2025105153号-2
         </Link>
-      )}
+      </Flexbox>
     </Flexbox>
   );
 });

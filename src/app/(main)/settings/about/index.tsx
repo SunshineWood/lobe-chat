@@ -43,7 +43,7 @@ const Page = memo<{ mobile?: boolean }>(({ mobile }) => {
   const { t } = useTranslation('common');
   const { styles } = useStyles();
   const enabledTelemetryChat = useServerConfigStore(serverConfigSelectors.enabledTelemetryChat);
-
+  const shouldShowFlexbox = false;
   return (
     <>
       <Form.Group
@@ -52,8 +52,8 @@ const Page = memo<{ mobile?: boolean }>(({ mobile }) => {
         variant={'pure'}
       >
         <Flexbox gap={20} paddingBlock={20} width={'100%'}>
-          <div className={styles.title}>{t('version')}</div>
-          <Version mobile={mobile} />
+          {/*<div className={styles.title}>{t('version')}</div>*/}
+          {shouldShowFlexbox && <Version mobile={mobile} />}
           <Divider style={{ marginBlock: 0 }} />
           <div className={styles.title}>{t('contact')}</div>
           <AboutList

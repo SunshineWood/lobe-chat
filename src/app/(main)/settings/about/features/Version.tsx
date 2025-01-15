@@ -26,7 +26,6 @@ const Version = memo<{ mobile?: boolean }>(({ mobile }) => {
   const [latestVersion] = useGlobalStore((s) => [s.latestVersion]);
   const { t } = useTranslation('common');
   const { styles, theme } = useStyles();
-
   return (
     <Flexbox
       align={mobile ? 'stretch' : 'center'}
