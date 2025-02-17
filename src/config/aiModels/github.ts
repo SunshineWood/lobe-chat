@@ -4,6 +4,7 @@ const githubChatModels: AIChatModelCard[] = [
   {
     abilities: {
       functionCall: true,
+      reasoning: true,
     },
     contextWindowTokens: 200_000,
     description:
@@ -17,6 +18,7 @@ const githubChatModels: AIChatModelCard[] = [
   },
   {
     abilities: {
+      reasoning: true,
       vision: true,
     },
     contextWindowTokens: 128_000,
@@ -29,6 +31,7 @@ const githubChatModels: AIChatModelCard[] = [
   },
   {
     abilities: {
+      reasoning: true,
       vision: true,
     },
     contextWindowTokens: 200_000,
@@ -42,6 +45,7 @@ const githubChatModels: AIChatModelCard[] = [
   },
   {
     abilities: {
+      reasoning: true,
       vision: true,
     },
     contextWindowTokens: 128_000,
@@ -80,6 +84,9 @@ const githubChatModels: AIChatModelCard[] = [
     type: 'chat',
   },
   {
+    abilities: {
+      reasoning: true,
+    },
     contextWindowTokens: 128_000,
     displayName: 'DeepSeek R1',
     id: 'DeepSeek-R1',
@@ -179,6 +186,18 @@ const githubChatModels: AIChatModelCard[] = [
     displayName: 'Llama 3.2 90B Vision',
     id: 'llama-3.2-90b-vision-instruct',
     maxOutput: 4096,
+    type: 'chat',
+  },
+  {
+    abilities: {
+      functionCall: true,
+    },
+    contextWindowTokens: 32_768,
+    description:
+      'Llama 3.3 是 Llama 系列最先进的多语言开源大型语言模型，以极低成本体验媲美 405B 模型的性能。基于 Transformer 结构，并通过监督微调（SFT）和人类反馈强化学习（RLHF）提升有用性和安全性。其指令调优版本专为多语言对话优化，在多项行业基准上表现优于众多开源和封闭聊天模型。知识截止日期为 2023 年 12 月',
+    displayName: 'Llama 3.3 70B Instruct',
+    enabled: true,
+    id: 'llama-3.3-70b-instruct',
     type: 'chat',
   },
   {
