@@ -26,13 +26,13 @@ export class DatabaseManager {
 
   // CDN 配置
   private static WASM_CDN_URL =
-    'https://registry.npmmirror.com/@electric-sql/pglite/0.2.13/files/dist/postgres.wasm';
+    'https://registry.npmmirror.com/@electric-sql/pglite/0.2.17/files/dist/postgres.wasm';
 
   private static FSBUNDLER_CDN_URL =
-    'https://registry.npmmirror.com/@electric-sql/pglite/0.2.13/files/dist/postgres.data';
+    'https://registry.npmmirror.com/@electric-sql/pglite/0.2.17/files/dist/postgres.data';
 
   private static VECTOR_CDN_URL =
-    'https://registry.npmmirror.com/@electric-sql/pglite/0.2.13/files/dist/vector.tar.gz';
+    'https://registry.npmmirror.com/@electric-sql/pglite/0.2.17/files/dist/vector.tar.gz';
 
   private constructor() {}
 
@@ -146,13 +146,15 @@ export class DatabaseManager {
   private async migrate(skipMultiRun = false): Promise<DrizzleInstance> {
     if (this.isLocalDBSchemaSynced && skipMultiRun) return this.db;
 
-    const cacheHash = localStorage.getItem(pgliteSchemaHashCache);
-    const hash = Md5.hashStr(JSON.stringify(migrations));
-
-    // if hash is the same, no need to migrate
-    if (hash === cacheHash) {
-      this.isLocalDBSchemaSynced = true;
-      return this.db;
+    let hash: string | undefined;
+    if (typeof localStorage !== 'undefined') {
+      const cacheHash = localStorage.getItem(pgliteSchemaHashCache);
+      hash = Md5.hashStr(JSON.stringify(migrations));
+      // if hash is the same, no need to migrate
+      if (hash === cacheHash) {
+        this.isLocalDBSchemaSynced = true;
+        return this.db;
+      }
     }
 
     const start = Date.now();
@@ -162,7 +164,11 @@ export class DatabaseManager {
       // refs: https://github.com/drizzle-team/drizzle-orm/discussions/2532
       // @ts-expect-error
       await this.db.dialect.migrate(migrations, this.db.session, {});
-      localStorage.setItem(pgliteSchemaHashCache, hash);
+
+      if (typeof localStorage !== 'undefined' && hash) {
+        localStorage.setItem(pgliteSchemaHashCache, hash);
+      }
+
       this.isLocalDBSchemaSynced = true;
 
       console.info(`🗂 Migration success, take ${Date.now() - start}ms`);
@@ -201,7 +207,8 @@ export class DatabaseManager {
         const dbName = 'lobechat';
 
         // make db as web worker if worker is available
-        if (typeof Worker !== 'undefined') {
+        // https://github.com/lobehub/lobe-chat/issues/5785
+        if (typeof Worker !== 'undefined' && typeof navigator.locks !== 'undefined') {
           db = await initPgliteWorker({
             dbName,
             fsBundle: fsBundle as Blob,

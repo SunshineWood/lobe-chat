@@ -53,6 +53,9 @@
   "hunyuan": {
     "description": "Een door Tencent ontwikkeld groot taalmodel, dat beschikt over krachtige Chinese creatiecapaciteiten, logische redeneervaardigheden in complexe contexten, en betrouwbare taakuitvoeringscapaciteiten."
   },
+  "infiniai": {
+    "description": "Hoogwaardige, gebruiksvriendelijke en veilige grote modelservices voor app-ontwikkelaars, die de hele processtroom van het ontwikkelen tot het implementeren van grote modellen dekken."
+  },
   "internlm": {
     "description": "Een open-source organisatie die zich richt op onderzoek en ontwikkeling van tools voor grote modellen. Biedt een efficiënt en gebruiksvriendelijk open-source platform voor alle AI-ontwikkelaars, zodat de meest geavanceerde modellen en algoritmische technologieën binnen handbereik zijn."
   },
@@ -89,6 +92,9 @@
   "perplexity": {
     "description": "Perplexity is een toonaangevende aanbieder van dialooggeneratiemodellen, die verschillende geavanceerde Llama 3.1-modellen aanbiedt, die zowel online als offline toepassingen ondersteunen, en bijzonder geschikt zijn voor complexe natuurlijke taalverwerkingstaken."
   },
+  "ppio": {
+    "description": "PPIO biedt stabiele en kosteneffectieve open source model API-diensten, die ondersteuning bieden voor de volledige DeepSeek-serie, Llama, Qwen en andere toonaangevende grote modellen in de industrie."
+  },
   "qwen": {
     "description": "Tongyi Qianwen is een door Alibaba Cloud zelf ontwikkeld grootschalig taalmodel met krachtige mogelijkheden voor natuurlijke taalbegrip en -generatie. Het kan verschillende vragen beantwoorden, tekstinhoud creëren, meningen uiten, code schrijven, en speelt een rol in verschillende domeinen."
   },
@@ -118,6 +124,9 @@
   },
   "upstage": {
     "description": "Upstage richt zich op het ontwikkelen van AI-modellen voor verschillende zakelijke behoeften, waaronder Solar LLM en document AI, met als doel het realiseren van kunstmatige algemene intelligentie (AGI). Het creëert eenvoudige dialoogagenten via de Chat API en ondersteunt functionele aanroepen, vertalingen, insluitingen en specifieke domeintoepassingen."
+  },
+  "vertexai": {
+    "description": "De Gemini-serie van Google is zijn meest geavanceerde, algemene AI-modellen, ontwikkeld door Google DeepMind. Deze modellen zijn ontworpen voor multimodale toepassingen en ondersteunen naadloze begrip en verwerking van tekst, code, afbeeldingen, audio en video. Ze zijn geschikt voor verschillende omgevingen, van datacenters tot mobiele apparaten, en verbeteren aanzienlijk de efficiëntie en toepasbaarheid van AI-modellen."
   },
   "vllm": {
     "description": "vLLM is een snelle en gebruiksvriendelijke bibliotheek voor LLM-inferentie en -diensten."
