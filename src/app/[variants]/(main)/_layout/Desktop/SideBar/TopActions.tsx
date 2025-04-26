@@ -21,7 +21,7 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
   const { showMarket, enableKnowledgeBase } = useServerConfigStore(featureFlagsSelectors);
 
   return (
-    <>
+    <Flexbox>
       <Link
         aria-label={t('tab.chat')}
         href={'/chat'}
