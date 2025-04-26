@@ -216,6 +216,12 @@ export const generateAIChat: StateCreator<
       skipRefresh: !onlyAddUserMessage && newMessage.fileList?.length === 0,
     });
 
+    if (!id) {
+      set({ isCreatingMessage: false }, false, n('creatingMessage/start'));
+      if (!!newTopicId) get().internal_updateTopicLoading(newTopicId, false);
+      return;
+    }
+
     if (tempMessageId) get().internal_toggleMessageLoading(false, tempMessageId);
 
     // switch to the new topic if create the new topic
@@ -346,6 +352,8 @@ export const generateAIChat: StateCreator<
 
     const assistantId = await get().internal_createMessage(assistantMessage);
 
+    if (!assistantId) return;
+
     // 3. place a search with the search working model if this model is not support tool use
     const isModelSupportToolUse = aiModelSelectors.isModelSupportToolUse(
       model,
@@ -379,6 +387,12 @@ export const generateAIChat: StateCreator<
               provider,
             });
           }
+        },
+        trace: {
+          traceId: params?.traceId,
+          sessionId: get().activeId,
+          topicId: get().activeTopicId,
+          traceName: TraceNameMap.SearchIntentRecognition,
         },
         abortController,
         onMessageHandle: async (chunk) => {
@@ -562,7 +576,7 @@ export const generateAIChat: StateCreator<
       },
       onFinish: async (
         content,
-        { traceId, observationId, toolCalls, reasoning, grounding, usage },
+        { traceId, observationId, toolCalls, reasoning, grounding, usage, speed },
       ) => {
         // if there is traceId, update it
         if (traceId) {
@@ -597,8 +611,8 @@ export const generateAIChat: StateCreator<
           toolCalls,
           reasoning: !!reasoning ? { ...reasoning, duration } : undefined,
           search: !!grounding?.citations ? grounding : undefined,
-          metadata: usage,
           imageList: finalImages.length > 0 ? finalImages : undefined,
+          metadata: speed ? { ...usage, ...speed } : usage,
         });
       },
       onMessageHandle: async (chunk) => {

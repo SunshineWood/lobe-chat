@@ -1,8 +1,9 @@
 import { ActionIcon } from '@lobehub/ui';
-import { Compass, FolderClosed, MessageSquare, ShoppingBag } from 'lucide-react';
+import { Compass, FolderClosed, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Flexbox } from 'react-layout-kit';
 
 import { useGlobalStore } from '@/store/global';
 import { SidebarTabKey } from '@/store/global/initialState';
@@ -59,12 +60,7 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
           />
         </Link>
       )}
-      {
-        <Link aria-label={'GitHub'} href="https://mall.mossxshop.top/" target={'_blank'}>
-          <ActionIcon icon={ShoppingBag} placement={'right'} title="充值" />
-        </Link>
-      }
-    </>
+    </Flexbox>
   );
 });
 

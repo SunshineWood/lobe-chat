@@ -6,6 +6,7 @@
     "chat": "Preferencias de chat",
     "meta": "Información del asistente",
     "modal": "Configuración del modelo",
+    "opening": "Configuración de apertura",
     "plugin": "Configuración de complementos",
     "prompt": "Configuración de roles",
     "tts": "Servicio de voz"
@@ -41,6 +42,17 @@
     "sessionDesc": "Configuración de roles y preferencias de sesión.",
     "sessionWithName": "Configuración de la sesión · {{name}}",
     "title": "Configuración"
+  },
+  "hotkey": {
+    "conflicts": "Conflicto con las teclas de acceso rápido existentes",
+    "group": {
+      "conversation": "Conversación",
+      "essential": "Esencial"
+    },
+    "invalidCombination": "La combinación de teclas de acceso rápido debe incluir al menos una tecla modificadora (Ctrl, Alt, Shift) y una tecla normal",
+    "record": "Presiona una tecla para grabar la tecla de acceso rápido",
+    "reset": "Restablecer a las teclas de acceso rápido predeterminadas",
+    "title": "Atajos de teclado"
   },
   "llm": {
     "aesGcm": "Su clave y dirección del agente se cifrarán utilizando el algoritmo de cifrado <1>AES-GCM</1>",
@@ -242,6 +254,21 @@
       "title": "Apertura mental"
     }
   },
+  "settingOpening": {
+    "openingMessage": {
+      "desc": "Mensaje de apertura al iniciar la conversación, utilizado para presentar las funciones del asistente",
+      "placeholder": "Hola, soy el asistente personalizado, puedes comenzar a hablar conmigo de inmediato o ir a la configuración del asistente para completar mi información.",
+      "title": "Mensaje de apertura"
+    },
+    "openingQuestions": {
+      "desc": "Preguntas orientativas que se muestran al inicio de la conversación",
+      "empty": "No hay preguntas disponibles",
+      "placeholder": "Introduce una pregunta",
+      "repeat": "La pregunta ya existe",
+      "title": "Preguntas de apertura"
+    },
+    "title": "Configuración de apertura"
+  },
   "settingPlugin": {
     "title": "Lista de complementos"
   },
@@ -335,6 +362,33 @@
     },
     "title": "Configuración de tema"
   },
+  "storage": {
+    "actions": {
+      "export": {
+        "button": "Exportar",
+        "exportType": {
+          "agent": "Exportar configuración del asistente",
+          "agentWithMessage": "Exportar asistente y mensajes",
+          "all": "Exportar configuración global y todos los datos del asistente",
+          "allAgent": "Exportar todas las configuraciones del asistente",
+          "allAgentWithMessage": "Exportar todos los asistentes y mensajes",
+          "globalSetting": "Exportar configuración global"
+        },
+        "title": "Exportar datos"
+      },
+      "import": {
+        "button": "Importar",
+        "title": "Importar datos"
+      },
+      "title": "Operaciones avanzadas"
+    },
+    "desc": "Uso de almacenamiento en el navegador actual",
+    "embeddings": {
+      "used": "Almacenamiento de vectores"
+    },
+    "title": "Almacenamiento de datos",
+    "used": "Uso de almacenamiento"
+  },
   "submitAgentModal": {
     "button": "Enviar asistente",
     "identifier": "Identificador del asistente",
@@ -425,8 +479,10 @@
     "agent": "Asistente predeterminado",
     "common": "Configuración común",
     "experiment": "Experimento",
+    "hotkey": "Atajos de teclado",
     "llm": "Modelo de lenguaje",
     "provider": "Proveedor de servicios de IA",
+    "storage": "Almacenamiento de datos",
     "sync": "Sincronización en la nube",
     "system-agent": "Asistente del sistema",
     "tts": "Servicio de voz"
